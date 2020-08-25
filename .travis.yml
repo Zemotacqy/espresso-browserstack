@@ -2,9 +2,9 @@ language: android
 dist: trusty
 
 install:
-    - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-    - echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
-    - echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force > /dev/null
+    - echo yes | android update sdk --no-ui --force > /dev/null
+    - echo yes | android update sdk --no-ui --force > /dev/null
+    - echo yes | android update sdk --all --no-ui --force > /dev/null
     - ./gradlew assemble
     - ./gradlew assembleAndroidTest
     - ls app/build/outputs/apk
