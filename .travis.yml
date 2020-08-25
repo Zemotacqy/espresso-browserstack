@@ -1,0 +1,10 @@
+language: java
+jdk:
+    - openjdk8
+
+install:
+    - ./gradlew assemble
+    - ./gradlew assembleAndroidTest
+    - ls app/build/outputs/apk
+script:
+    - echo "HEllo world"
