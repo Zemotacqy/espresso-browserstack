@@ -1,5 +1,6 @@
 package com.sample.browserstack.samplecalculator;
 
+import android.annotation.TargetApi;
 import android.support.test.filters.MediumTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -14,7 +15,23 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
 import com.squareup.spoon.Spoon;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@interface DivisionAnnotation
+{}
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@interface AdditionAnnotation
+{}
 
 /**
  * Espresso tests to ensure that simple operations result in
@@ -37,6 +54,7 @@ public class EnsureOperationTests {
     }
 
 
+    @AdditionAnnotation
     @Test
     public void ensureAdditionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
@@ -72,6 +90,7 @@ public class EnsureOperationTests {
         Spoon.screenshot(mainActivity, "post_multiplication");
     }
 
+    @DivisionAnnotation
     @Test
     public void ensureDivisionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
