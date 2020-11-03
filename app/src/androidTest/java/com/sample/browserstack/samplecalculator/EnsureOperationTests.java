@@ -1,9 +1,8 @@
 package com.sample.browserstack.samplecalculator;
 
-import android.annotation.TargetApi;
 import android.support.test.filters.MediumTest;
 import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -25,12 +24,12 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-@interface DivisionAnnotation
+@interface PlusMinus
 {}
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-@interface AdditionAnnotation
+@interface MultiplyDivide
 {}
 
 /**
@@ -54,7 +53,7 @@ public class EnsureOperationTests {
     }
 
 
-    @AdditionAnnotation
+    @PlusMinus
     @Test
     public void ensureAdditionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
@@ -67,6 +66,7 @@ public class EnsureOperationTests {
         Spoon.screenshot(mainActivity, "post_addition");
     }
 
+    @PlusMinus
     @Test
     public void ensureSubtractionWorks() {
         onView(withId(R.id.buttonTwo)).perform(click());
@@ -79,6 +79,7 @@ public class EnsureOperationTests {
         Spoon.screenshot(mainActivity, "post_subtraction");
     }
 
+    @MultiplyDivide
     @Test
     public void ensureMultiplicationWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
@@ -90,7 +91,7 @@ public class EnsureOperationTests {
         Spoon.screenshot(mainActivity, "post_multiplication");
     }
 
-    @DivisionAnnotation
+    @MultiplyDivide
     @Test
     public void ensureDivisionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
