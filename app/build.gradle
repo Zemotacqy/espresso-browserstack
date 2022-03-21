@@ -7,11 +7,23 @@ jacoco {
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 
     dependencies {
         classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
+        classpath "gradle.plugin.com.browserstack.gradle:browserstack-gradle-plugin:3.0.2"
     }
+}
+
+apply plugin: "com.browserstack.gradle"
+
+browserStackConfig {
+    username = "<username>"
+    accessKey = "<access_key>"
+    configFilePath = "/Users/manish/browserstack/espresso-browserstack/config.json"
 }
 
 android {

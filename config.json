@@ -1,0 +1,19 @@
+{
+  "devices": ["Google Pixel 6 Pro-12.0",
+    "Google Pixel 6-12.0",
+    "Google Pixel 5-12.0",
+    "Samsung Galaxy S22 Ultra-12.0",
+    "Samsung Galaxy S22 Plus-12.0",
+    "Samsung Galaxy S22-12.0",
+    "Samsung Galaxy S21-12.0",
+    "Samsung Galaxy S21 Ultra-11.0",
+    "Samsung Galaxy S21-11.0",
+    "Samsung Galaxy S21 Plus-11.0"
+  ],
+  "project": "getExternalFilesDir screenshots",
+  "class": ["com.sample.browserstack.samplecalculator.EnsureOperationTests","com.sample.browserstack.samplecalculator.EnsureInputTests"],
+  "deviceLogs": true,
+  "networkLogs": false,
+  "enableSpoonFramework": true,
+  "singleRunnerInvocation": true
+}
